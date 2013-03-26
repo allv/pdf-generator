@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE Pdf SYSTEM "Pdf.dtd" >
+<Pdf>
+<define>
+		<color id="testColor" R="255" G="0" B="0" />
+		<color id="testColor1" R="0" G="0" B="255" />
+		<font id="testFont" font-color="testColor" font-size="10"/>
+		<font id="testFont1" font-color="testColor1" font-size="5"/>
+	</define>
+<body diplayTotalPageClass="com..ctp.ext.handler.pdf.test.PdfExport">
+	<footer>
+		<before>
+			<text>第</text>
+		</before>
+		<after>
+			<text>页</text>
+		</after>
+	</footer>
+	<table cols="10" headerRow="1">
+		<td ><text font="testFont">凭证号凭证号凭证</text></td>
+		<td halign="center"><blank count="3" /><text>付款账号</text><value tagId="26" /></td>
+		<td><text>付款单位</text></td>
+		<td><text>金额</text></td>
+		<td><text>币种11111111111111111</text></td>
+		<td><text  font="testFont1">制单日期</text></td>
+		<td><text >收款账号</text></td>
+		<td><text>收款单位</text></td>
+		<td valign="middle"><text>用途</text></td>
+		<td><text>票据状态</text></td>
+		<td halign="right"><text>凭证号</text></td>
+		<td><text>付款账号</text></td>
+		<td><text>付款单位</text></td>
+		<td><text>金额</text></td>
+		<td><text>币种</text></td>
+		<td><text>制单日期</text></td>
+		<td><text>收款账号</text></td>
+		<td><text>收款单位</text></td>
+		<td><text>用途</text></td>
+		<if condition="$26 != 1">
+		<td>
+			<text>票据状态</text>
+		</td>
+		</if>
+		<if condition="$26 = 1">
+			<if condition="$148 &lt;&gt; 1">
+				<td>
+					<text>票据状态11</text>
+				</td>
+			</if>
+		</if>
+		<if condition="$26 == 1">
+		<loop tagId="148" count="2">
+			<td><value tagId="148" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+		</loop>
+		</if>
+		<loop tagId="148">
+			<td><value tagId="148" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td>
+			
+			</td>
+		</loop>
+		<loop tagId="148">
+			<td><value tagId="148" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+		</loop>
+		<loop tagId="148">
+			<td><value tagId="148" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+		</loop>
+		<loop tagId="148">
+			<td><value tagId="148" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+		</loop>
+		<loop tagId="148">
+			<td><value tagId="148" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+		</loop>
+		<loop tagId="148">
+			<td><value tagId="148" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="25" /></td>
+			<td><value tagId="26" /></td>
+			<td><value tagId="26" /></td>
+		</loop>
+	</table>
+	<paragraph>
+		<text>当前页合计：总计：（6笔/200.00元 2笔/58.00元） </text><value tagId="26" /><text>等待答复：（6笔/200.00元 2笔/58.00元） 处理成功：（0笔/0.00元）</text>
+	</paragraph>
+</body>
+</Pdf>

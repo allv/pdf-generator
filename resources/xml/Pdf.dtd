@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!ELEMENT CCBPdf (define?,body) >
+<!ELEMENT define (color*,(font|border)*) >
+<!ELEMENT body (header?,footer?,(table|img|paragraph|loop|if)*)>
+
+<!ELEMENT font EMPTY >
+<!ELEMENT color EMPTY >
+<!ELEMENT border EMPTY >
+
+<!ELEMENT header (before,after)>
+<!ELEMENT footer (before,after)>
+
+<!ELEMENT before (text|if|blank|value)* >
+<!ELEMENT after (text|if|blank|value)* >
+
+<!ELEMENT table (td|if|loop)* >
+<!ELEMENT img EMPTY >
+<!ELEMENT paragraph (text|if|blank|loop|value)* >
+
+<!ELEMENT blank EMPTY >
+
+<!ELEMENT td (table|img|(text|blank|value|if|loop)*) >
+
+<!ELEMENT text (#PCDATA) >
+
+<!ELEMENT if (loop|if|table|td|paragraph|text|blank|img)* >
+<!ELEMENT loop (loop|if|table|td|paragraph|img)* >
+<!ELEMENT value EMPTY >
+
+<!ATTLIST color id CDATA #REQUIRED>
+<!ATTLIST color R CDATA #REQUIRED>
+<!ATTLIST color G CDATA #REQUIRED>
+<!ATTLIST color B CDATA #REQUIRED>
+<!ATTLIST color class CDATA #IMPLIED>
+
+<!ATTLIST border id CDATA #REQUIRED>
+<!ATTLIST border width CDATA #IMPLIED>
+<!ATTLIST border color CDATA #IMPLIED>
+<!ATTLIST border leftWidth CDATA #IMPLIED>
+<!ATTLIST border bottomWidth CDATA #IMPLIED>
+<!ATTLIST border rightWidth CDATA #IMPLIED>
+<!ATTLIST border topWidth CDATA #IMPLIED>
+<!ATTLIST border leftColor CDATA #IMPLIED>
+<!ATTLIST border bottomColor CDATA #IMPLIED>
+<!ATTLIST border rightColor CDATA #IMPLIED>
+<!ATTLIST border topColor CDATA #IMPLIED>
+<!ATTLIST border class CDATA #IMPLIED>
+
+<!ATTLIST font id CDATA #REQUIRED>
+<!ATTLIST font font-family CDATA  "STSong-Light">
+<!ATTLIST font font-size CDATA  "8">
+<!ATTLIST font font-color CDATA #IMPLIED>
+<!ATTLIST font style (NORMAL|BOLD|ITALIC|BOLDITALIC|UNDERLINE)  "NORMAL">
+<!ATTLIST font encoding CDATA  "UniGB-UCS2-H">
+<!ATTLIST font EMBEDDED (TRUE|FALSE)  "TRUE">
+<!ATTLIST font class CDATA #IMPLIED>
+
+<!ATTLIST body author CDATA #IMPLIED>
+<!ATTLIST body title CDATA #IMPLIED>
+<!ATTLIST body subject CDATA #IMPLIED>
+<!ATTLIST body keywords CDATA #IMPLIED>
+<!ATTLIST body pageSize (A4|A3) "A4">
+<!ATTLIST body isRotate (TRUE|FALSE) #IMPLIED>
+<!ATTLIST body margin-left CDATA #IMPLIED>
+<!ATTLIST body margin-bottom CDATA #IMPLIED>
+<!ATTLIST body margin-right CDATA #IMPLIED>
+<!ATTLIST body margin-top CDATA #IMPLIED>
+<!ATTLIST body diplayTotalPageClass CDATA #IMPLIED>
+
+<!ATTLIST paragraph align (LEFT|CENTER|RIGHT)  "LEFT">
+<!ATTLIST paragraph class CDATA #IMPLIED >
+
+
+<!ATTLIST table cols CDATA #REQUIRED>
+<!ATTLIST table widthPercentage CDATA #IMPLIED>
+<!ATTLIST table widths CDATA #IMPLIED>
+<!ATTLIST table headerRow CDATA #IMPLIED>
+<!ATTLIST table extendLastRow (TRUE|FALSE) #IMPLIED>
+<!ATTLIST table class CDATA #IMPLIED >
+
+<!ATTLIST text font CDATA #IMPLIED >
+<!ATTLIST blank count CDATA "1">
+
+<!ATTLIST td valign (TOP|MIDDLE|BOTTOM) "MIDDLE">
+<!ATTLIST td halign (LEFT|CENTER|RIGHT) "LEFT">
+<!ATTLIST td colspan CDATA #IMPLIED>
+<!ATTLIST td border CDATA #IMPLIED>
+<!ATTLIST td padding CDATA #IMPLIED>
+<!ATTLIST td backgroundColor CDATA #IMPLIED >
+<!ATTLIST td class CDATA #IMPLIED >
+
+<!ATTLIST header align (LEFT|CENTER|RIGHT) "CENTER">
+<!ATTLIST header isDisplayPage (TRUE|FALSE) #IMPLIED>
+<!ATTLIST header font CDATA #IMPLIED>
+<!ATTLIST header class CDATA #IMPLIED>
+
+<!ATTLIST footer align (LEFT|CENTER|RIGHT) "CENTER">
+<!ATTLIST footer isDisplayPage (TRUE|FALSE) #IMPLIED>
+<!ATTLIST footer font CDATA #IMPLIED>
+<!ATTLIST footer class CDATA #IMPLIED>
+
+<!ATTLIST img src CDATA #REQUIRED>
+<!ATTLIST img align (LEFT|CENTER|RIGHT) "CENTER">
+<!ATTLIST img widthPercentage CDATA #IMPLIED>
+<!ATTLIST img class CDATA #IMPLIED>
+
+<!ATTLIST if condition CDATA #REQUIRED>
+
+<!ATTLIST loop tagId CDATA #REQUIRED>
+<!ATTLIST loop count CDATA #IMPLIED>
+
+<!ATTLIST value tagId CDATA #REQUIRED>
+<!ATTLIST value font CDATA #IMPLIED>

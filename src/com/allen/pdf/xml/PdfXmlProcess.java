@@ -19,64 +19,64 @@ import org.jdom.input.SAXBuilder;
 
 public class PdfXmlProcess {
 
-    private Map dataSource;
-    private OutputStream outputStream;
+	private Map dataSource;
+	private OutputStream outputStream;
 
-    public PdfXmlProcess() {
-    }
-
-    public PdfXmlProcess(Map dataSource, OutputStream outputStream) {
-	this.dataSource = dataSource;
-	this.outputStream = outputStream;
-    }
-
-    public Map getDataSource() {
-	return dataSource;
-    }
-
-    public OutputStream getOutputStream() {
-	return outputStream;
-    }
-
-    public void setOutputStream(OutputStream outputStream) {
-	this.outputStream = outputStream;
-    }
-
-    public void setDataSource(Map dataSource) {
-	this.dataSource = dataSource;
-    }
-
-    public void process(Element root) throws Exception {
-	Element defineElement = root.getChild("define");
-	Element bodyElement = root.getChild("body");
-	HashMap preDefine = null;
-	DefineComponent defineComponent = new DefineComponent();
-	preDefine = (HashMap) defineComponent.unpack(defineElement);
-	if (preDefine == null) {
-	    preDefine = new HashMap();
+	public PdfXmlProcess() {
 	}
 
-	BodyComponent bodyComponent = new BodyComponent();
-	bodyComponent.setOutputStream(outputStream);
-	bodyComponent.unpack(bodyElement, dataSource, preDefine);
-    }
-
-    public void process(File f) throws Exception {
-	SAXBuilder builder = new SAXBuilder(false);
-	Document doc = builder.build(f);
-	Element root = doc.getRootElement();
-	Element defineElement = root.getChild("define");
-	Element bodyElement = root.getChild("body");
-	HashMap preDefine = null;
-	DefineComponent defineComponent = new DefineComponent();
-	preDefine = (HashMap) defineComponent.unpack(defineElement);
-	if (preDefine == null) {
-	    preDefine = new HashMap();
+	public PdfXmlProcess(Map dataSource, OutputStream outputStream) {
+		this.dataSource = dataSource;
+		this.outputStream = outputStream;
 	}
 
-	BodyComponent bodyComponent = new BodyComponent();
-	bodyComponent.setOutputStream(outputStream);
-	bodyComponent.unpack(bodyElement, dataSource, preDefine);
-    }
+	public Map getDataSource() {
+		return dataSource;
+	}
+
+	public OutputStream getOutputStream() {
+		return outputStream;
+	}
+
+	public void setOutputStream(OutputStream outputStream) {
+		this.outputStream = outputStream;
+	}
+
+	public void setDataSource(Map dataSource) {
+		this.dataSource = dataSource;
+	}
+
+	public void process(Element root) throws Exception {
+		Element defineElement = root.getChild("define");
+		Element bodyElement = root.getChild("body");
+		HashMap preDefine = null;
+		DefineComponent defineComponent = new DefineComponent();
+		preDefine = (HashMap) defineComponent.unpack(defineElement);
+		if (preDefine == null) {
+			preDefine = new HashMap();
+		}
+
+		BodyComponent bodyComponent = new BodyComponent();
+		bodyComponent.setOutputStream(outputStream);
+		bodyComponent.unpack(bodyElement, dataSource, preDefine);
+	}
+
+	public void process(File f) throws Exception {
+		SAXBuilder builder = new SAXBuilder(false);
+		Document doc = builder.build(f);
+		Element root = doc.getRootElement();
+		Element defineElement = root.getChild("define");
+		Element bodyElement = root.getChild("body");
+		HashMap preDefine = null;
+		DefineComponent defineComponent = new DefineComponent();
+		preDefine = (HashMap) defineComponent.unpack(defineElement);
+		if (preDefine == null) {
+			preDefine = new HashMap();
+		}
+
+		BodyComponent bodyComponent = new BodyComponent();
+		bodyComponent.setOutputStream(outputStream);
+		bodyComponent.unpack(bodyElement, dataSource, preDefine);
+	}
 
 }
